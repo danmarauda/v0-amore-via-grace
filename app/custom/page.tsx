@@ -11,10 +11,10 @@ export default function CustomPage() {
       <section className="pt-32 pb-16 bg-cream">
         <div className="container mx-auto px-6 md:px-12">
           <AnimationObserver className="fade-in">
-            <h1 className="text-4xl md:text-5xl text-center mb-6">Create Your Custom Bracelet</h1>
+            <h1 className="text-4xl md:text-5xl text-center mb-6">Create Your Custom Piece</h1>
             <p className="text-gray-600 text-center max-w-2xl mx-auto mb-8">
-              Design a one-of-a-kind bracelet that tells your unique story. Share your vision, and Grace will bring it
-              to life with care and attention to detail.
+              Design a one-of-a-kind accessory that tells your unique story. Grace offers custom design for bracelets,
+              rings, anklets, necklaces, and phone charms—each handcrafted with creativity and love in Melbourne.
             </p>
           </AnimationObserver>
         </div>
@@ -41,7 +41,7 @@ export default function CustomPage() {
                 <div>
                   <h2 className="text-2xl md:text-3xl mb-4">How It Works</h2>
                   <p className="text-gray-600 mb-6">
-                    Creating your custom bracelet is a collaborative process. Share your ideas, preferences, and
+                    Creating your custom piece is a collaborative process. Share your ideas, preferences, and
                     inspiration, and Grace will work with you to create something truly special.
                   </p>
                 </div>
@@ -78,7 +78,7 @@ export default function CustomPage() {
                     <div>
                       <h3 className="text-xl mb-2">Handcrafted Creation</h3>
                       <p className="text-gray-600">
-                        Once the design is finalized, Grace will carefully craft your bracelet by hand.
+                        Once the design is finalized, Grace will carefully craft your piece by hand.
                       </p>
                     </div>
                   </div>
@@ -126,10 +126,17 @@ export default function CustomPage() {
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="bracelet-type" className="block text-sm font-medium">
-                  Bracelet Type
+                <label htmlFor="item-type" className="block text-sm font-medium">
+                  Item Type
                 </label>
-                <Input id="bracelet-type" placeholder="e.g., Name bracelet, Charm bracelet, Beaded design" />
+                <select id="item-type" className="w-full p-2 border border-gray-300 rounded-md">
+                  <option value="">Select item type</option>
+                  <option value="bracelet">Custom Bracelet</option>
+                  <option value="ring">Custom Ring</option>
+                  <option value="anklet">Custom Anklet</option>
+                  <option value="necklace">Custom Necklace</option>
+                  <option value="phone-charm">Custom Phone Charm</option>
+                </select>
               </div>
 
               <div className="space-y-2">
@@ -137,6 +144,20 @@ export default function CustomPage() {
                   Color Preferences
                 </label>
                 <Input id="colors" placeholder="e.g., Sage green, Pastel pink, Natural tones" />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="materials" className="block text-sm font-medium">
+                  Preferred Materials
+                </label>
+                <select id="materials" className="w-full p-2 border border-gray-300 rounded-md">
+                  <option value="">Select preferred materials</option>
+                  <option value="clay-beads">Clay Beads</option>
+                  <option value="glass-beads">Glass Beads</option>
+                  <option value="sea-beads">Sea Beads</option>
+                  <option value="pony-beads">Pony Beads</option>
+                  <option value="mixed">Mixed Materials</option>
+                </select>
               </div>
 
               <div className="space-y-2">
@@ -178,7 +199,7 @@ export default function CustomPage() {
             <AnimationObserver className="fade-in">
               <h2 className="text-3xl md:text-4xl mb-6">Inspiration Gallery</h2>
               <p className="text-gray-600 mb-8">
-                Browse through some of Grace's custom creations to spark ideas for your own unique bracelet. Each piece
+                Browse through some of Grace's custom creations to spark ideas for your own unique piece. Each piece
                 tells a story and was crafted with love and attention to detail.
               </p>
               <Button asChild>
@@ -191,8 +212,8 @@ export default function CustomPage() {
                 {[1, 2, 3, 4].map((item) => (
                   <div key={item} className="aspect-square relative rounded-md overflow-hidden">
                     <Image
-                      src={`/placeholder.svg?height=300&width=300&text=Custom+${item}`}
-                      alt={`Custom bracelet example ${item}`}
+                      src={`/custom_text_image.png?height=300&width=300&text=Custom+${item}`}
+                      alt={`Custom piece example ${item}`}
                       fill
                       className="object-cover hover:scale-105 transition-transform duration-500"
                     />

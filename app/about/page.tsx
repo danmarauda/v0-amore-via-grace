@@ -11,8 +11,8 @@ export default function AboutPage() {
           <AnimationObserver className="fade-in">
             <h1 className="text-4xl md:text-5xl text-center mb-6">The Story Behind Amore Via Grace</h1>
             <p className="text-gray-600 text-center max-w-3xl mx-auto mb-8">
-              Discover the journey of a passionate young entrepreneur who turned her love for jewelry-making into a
-              business that brings joy to customers across Australia.
+              Discover how Grace Anastasia Sabau turned her passion for handcrafting unique jewellery and accessories
+              into a beloved Australian small business that brings joy, individuality, and sparkle to everyday life.
             </p>
           </AnimationObserver>
         </div>
@@ -38,30 +38,29 @@ export default function AboutPage() {
 
             <AnimationObserver className="slide-in-right">
               <div>
-                <h2 className="text-2xl md:text-3xl mb-6">Meet Grace - Young Entrepreneur & Artist</h2>
+                <h2 className="text-2xl md:text-3xl mb-6">Meet Grace Anastasia Sabau - Creative Entrepreneur</h2>
                 <p className="text-gray-600 mb-4 leading-relaxed">
-                  At just 16 years old, Grace has already built a thriving jewelry business that serves customers across
-                  Australia. Her journey began during the school holidays when she discovered her passion for creating
-                  beautiful, meaningful jewelry pieces.
+                  Grace founded Amore Via Grace in 2021 when she was just 13 years old, transforming her love for
+                  creating beautiful accessories into a thriving small business. Now 16, she continues to personally
+                  handcraft every piece from her Melbourne studio.
                 </p>
                 <p className="text-gray-600 mb-4 leading-relaxed">
-                  Grace's Italian heritage deeply influences her work, bringing a sense of artistry and attention to
-                  detail that sets her pieces apart. "Amore Via Grace" - meaning "Love through Grace" - perfectly
-                  captures the heart behind every creation.
+                  What started as a creative hobby has blossomed into a business that celebrates individuality and
+                  creativity. Grace's warm, personal approach and attention to detail have made Amore Via Grace a go-to
+                  destination for unique, meaningful, gift-ready accessories.
                 </p>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  Working from her Melbourne studio, Grace personally handles every aspect of her business, from design
-                  conception to final packaging. This personal touch ensures that each customer receives not just a
-                  piece of jewelry, but a meaningful connection to the artist behind it.
+                  From market stalls to an expanding online presence, Grace has built her brand on the foundation of
+                  handcrafting one-of-a-kind pieces with love, care, and creativity. Each accessory tells a story and
+                  brings a touch of sparkle to its owner's life.
                 </p>
                 <div className="bg-sage/10 p-4 rounded-lg mb-6">
                   <p className="text-gray-700 italic">
-                    "I believe that jewelry should tell a story. Every piece I create is designed to celebrate the
-                    unique journey of the person who will wear it. Whether it's a friendship bracelet that symbolizes an
-                    unbreakable bond or a birthstone piece that marks a special milestone, I want my jewelry to be as
-                    meaningful as it is beautiful."
+                    "Every piece is handmade with love and creativity—crafted with care to be as unique and meaningful
+                    as the person wearing it. I want my accessories to bring joy and help people express their
+                    individuality."
                   </p>
-                  <p className="text-right text-sm text-gray-600 mt-2">- Grace</p>
+                  <p className="text-right text-sm text-gray-600 mt-2">- Grace Anastasia Sabau, Founder</p>
                 </div>
               </div>
             </AnimationObserver>
@@ -82,10 +81,10 @@ export default function AboutPage() {
                 <div className="w-12 h-12 rounded-full bg-sage flex items-center justify-center text-white font-bold mb-4">
                   2021
                 </div>
-                <h3 className="text-xl mb-3">The Spark</h3>
+                <h3 className="text-xl mb-3">The Creative Spark</h3>
                 <p className="text-gray-600">
-                  During school holidays, Grace discovered her passion for jewelry-making. What started as a creative
-                  hobby quickly became something more when friends and family began requesting custom pieces.
+                  At 13, Grace discovered her passion for handcrafting accessories. What began as a creative outlet
+                  quickly grew as friends and family fell in love with her unique designs and attention to detail.
                 </p>
               </div>
             </AnimationObserver>
@@ -95,10 +94,11 @@ export default function AboutPage() {
                 <div className="w-12 h-12 rounded-full bg-sage flex items-center justify-center text-white font-bold mb-4">
                   2022
                 </div>
-                <h3 className="text-xl mb-3">Growing Recognition</h3>
+                <h3 className="text-xl mb-3">Market Success</h3>
                 <p className="text-gray-600">
-                  Word spread about Grace's beautiful creations. She began receiving orders from across Melbourne, then
-                  Victoria, as customers discovered her unique approach to personalized jewelry.
+                  Grace began selling at local Melbourne markets, where her colorful, handcrafted accessories quickly
+                  gained a loyal following. Her warm personality and creative designs made her stall a favorite
+                  destination.
                 </p>
               </div>
             </AnimationObserver>
@@ -108,10 +108,10 @@ export default function AboutPage() {
                 <div className="w-12 h-12 rounded-full bg-sage flex items-center justify-center text-white font-bold mb-4">
                   2024
                 </div>
-                <h3 className="text-xl mb-3">National Reach</h3>
+                <h3 className="text-xl mb-3">Growing Online</h3>
                 <p className="text-gray-600">
-                  Today, Amore Via Grace serves customers across Australia, with Grace personally crafting each piece in
-                  her Melbourne studio. The business continues to grow while maintaining its personal touch.
+                  Now expanding beyond markets with a growing online presence, Grace continues to personally craft each
+                  piece while building Amore Via Grace into a beloved Australian handmade brand.
                 </p>
               </div>
             </AnimationObserver>

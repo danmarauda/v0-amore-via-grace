@@ -15,7 +15,7 @@ const products = [
     description: "Personalized with your chosen name or meaningful word.",
     price: 24.99,
     image: "/placeholder.svg?height=500&width=500&text=Custom+Name",
-    category: "custom",
+    category: "bracelets",
   },
   {
     id: "initial-charm-bracelet",
@@ -23,7 +23,7 @@ const products = [
     description: "Elegant bracelet featuring your personal initial.",
     price: 26.99,
     image: "/placeholder.svg?height=500&width=500&text=Initial+Charm",
-    category: "custom",
+    category: "bracelets",
   },
   {
     id: "custom-date-bracelet",
@@ -31,7 +31,7 @@ const products = [
     description: "Commemorate special dates with elegant number charms.",
     price: 28.99,
     image: "/placeholder.svg?height=500&width=500&text=Date+Bracelet",
-    category: "custom",
+    category: "bracelets",
   },
 
   // Birthstone Collection
@@ -41,7 +41,7 @@ const products = [
     description: "Deep red garnet stones in an elegant setting.",
     price: 32.99,
     image: "/placeholder.svg?height=500&width=500&text=Garnet",
-    category: "birthstone",
+    category: "rings",
   },
   {
     id: "birthstone-april",
@@ -49,7 +49,7 @@ const products = [
     description: "Sparkling diamond accents for April babies.",
     price: 45.99,
     image: "/placeholder.svg?height=500&width=500&text=Diamond",
-    category: "birthstone",
+    category: "rings",
   },
   {
     id: "birthstone-september",
@@ -57,7 +57,7 @@ const products = [
     description: "Beautiful blue sapphire in a delicate setting.",
     price: 38.99,
     image: "/placeholder.svg?height=500&width=500&text=Sapphire",
-    category: "birthstone",
+    category: "rings",
   },
 
   // Friendship Collection
@@ -67,7 +67,7 @@ const products = [
     description: "Matching infinity symbol bracelets for best friends.",
     price: 42.99,
     image: "/placeholder.svg?height=500&width=500&text=Infinity+Set",
-    category: "friendship",
+    category: "bracelets",
   },
   {
     id: "friendship-heart-set",
@@ -75,7 +75,7 @@ const products = [
     description: "Two halves of a heart that complete each other.",
     price: 39.99,
     image: "/placeholder.svg?height=500&width=500&text=Heart+Set",
-    category: "friendship",
+    category: "bracelets",
   },
   {
     id: "friendship-coordinates",
@@ -83,7 +83,7 @@ const products = [
     description: "Matching bracelets with meaningful location coordinates.",
     price: 46.99,
     image: "/placeholder.svg?height=500&width=500&text=Coordinates",
-    category: "friendship",
+    category: "bracelets",
   },
 
   // Charm Collection
@@ -93,7 +93,7 @@ const products = [
     description: "Begin your charm collection with this elegant base.",
     price: 28.99,
     image: "/placeholder.svg?height=500&width=500&text=Charm+Starter",
-    category: "charm",
+    category: "charms",
   },
   {
     id: "travel-charm-set",
@@ -101,7 +101,7 @@ const products = [
     description: "Collection of travel-themed charms for adventurers.",
     price: 35.99,
     image: "/placeholder.svg?height=500&width=500&text=Travel+Charms",
-    category: "charm",
+    category: "charms",
   },
   {
     id: "hobby-charm-collection",
@@ -109,7 +109,7 @@ const products = [
     description: "Express your passions with hobby-themed charms.",
     price: 33.99,
     image: "/placeholder.svg?height=500&width=500&text=Hobby+Charms",
-    category: "charm",
+    category: "charms",
   },
 
   // Minimalist Collection
@@ -119,7 +119,7 @@ const products = [
     description: "Simple elegance with our signature sage green cord.",
     price: 18.99,
     image: "/placeholder.svg?height=500&width=500&text=Sage+Cord",
-    category: "minimalist",
+    category: "necklaces",
   },
   {
     id: "delicate-chain-bracelet",
@@ -127,7 +127,7 @@ const products = [
     description: "Ultra-fine chain for understated elegance.",
     price: 22.99,
     image: "/placeholder.svg?height=500&width=500&text=Delicate+Chain",
-    category: "minimalist",
+    category: "necklaces",
   },
 
   // Special Occasions
@@ -155,10 +155,11 @@ export default function ShopPage() {
       <section className="pt-32 pb-16 bg-cream">
         <div className="container mx-auto px-6 md:px-12">
           <AnimationObserver className="fade-in">
-            <h1 className="text-4xl md:text-5xl text-center mb-6">Our Jewelry Collection</h1>
+            <h1 className="text-4xl md:text-5xl text-center mb-6">Our Handcrafted Collection</h1>
             <p className="text-gray-600 text-center max-w-3xl mx-auto mb-8">
-              Discover handcrafted pieces designed specifically for kids, teens, and young adults. Each piece is
-              personally created by Grace with love, attention to detail, and a commitment to quality.
+              Discover one-of-a-kind jewellery and accessories handcrafted with love in Melbourne. From bracelets and
+              necklaces to phone charms and hair accessories—each piece brings joy, individuality, and sparkle to your
+              everyday life.
             </p>
           </AnimationObserver>
         </div>
@@ -169,46 +170,55 @@ export default function ShopPage() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
             <AnimationObserver className="fade-in" delay={0}>
-              <Link href="/shop?category=custom" className="group">
+              <Link href="/shop?category=bracelets" className="group">
                 <div className="bg-sage/10 rounded-lg p-4 text-center hover:bg-sage/20 transition-colors">
                   <div className="text-2xl mb-2">✨</div>
-                  <h3 className="font-medium text-sm">Custom</h3>
+                  <h3 className="font-medium text-sm">Bracelets</h3>
                 </div>
               </Link>
             </AnimationObserver>
 
             <AnimationObserver className="fade-in" delay={100}>
-              <Link href="/shop?category=birthstone" className="group">
+              <Link href="/shop?category=rings" className="group">
                 <div className="bg-sage/10 rounded-lg p-4 text-center hover:bg-sage/20 transition-colors">
-                  <div className="text-2xl mb-2">💎</div>
-                  <h3 className="font-medium text-sm">Birthstones</h3>
+                  <div className="text-2xl mb-2">💍</div>
+                  <h3 className="font-medium text-sm">Rings</h3>
                 </div>
               </Link>
             </AnimationObserver>
 
             <AnimationObserver className="fade-in" delay={200}>
-              <Link href="/shop?category=friendship" className="group">
+              <Link href="/shop?category=necklaces" className="group">
                 <div className="bg-sage/10 rounded-lg p-4 text-center hover:bg-sage/20 transition-colors">
-                  <div className="text-2xl mb-2">👭</div>
-                  <h3 className="font-medium text-sm">Friendship</h3>
+                  <div className="text-2xl mb-2">📿</div>
+                  <h3 className="font-medium text-sm">Necklaces</h3>
                 </div>
               </Link>
             </AnimationObserver>
 
             <AnimationObserver className="fade-in" delay={300}>
-              <Link href="/shop?category=charm" className="group">
+              <Link href="/shop?category=anklets" className="group">
                 <div className="bg-sage/10 rounded-lg p-4 text-center hover:bg-sage/20 transition-colors">
-                  <div className="text-2xl mb-2">🎯</div>
-                  <h3 className="font-medium text-sm">Charms</h3>
+                  <div className="text-2xl mb-2">🦶</div>
+                  <h3 className="font-medium text-sm">Anklets</h3>
                 </div>
               </Link>
             </AnimationObserver>
 
             <AnimationObserver className="fade-in" delay={400}>
-              <Link href="/shop?category=occasions" className="group">
+              <Link href="/shop?category=charms" className="group">
                 <div className="bg-sage/10 rounded-lg p-4 text-center hover:bg-sage/20 transition-colors">
-                  <div className="text-2xl mb-2">🎉</div>
-                  <h3 className="font-medium text-sm">Occasions</h3>
+                  <div className="text-2xl mb-2">📱</div>
+                  <h3 className="font-medium text-sm">Phone Charms</h3>
+                </div>
+              </Link>
+            </AnimationObserver>
+
+            <AnimationObserver className="fade-in" delay={500}>
+              <Link href="/shop?category=hair" className="group">
+                <div className="bg-sage/10 rounded-lg p-4 text-center hover:bg-sage/20 transition-colors">
+                  <div className="text-2xl mb-2">🎀</div>
+                  <h3 className="font-medium text-sm">Hair Accessories</h3>
                 </div>
               </Link>
             </AnimationObserver>
@@ -242,11 +252,12 @@ export default function ShopPage() {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">All Categories</SelectItem>
-                  <SelectItem value="custom">Custom Pieces</SelectItem>
-                  <SelectItem value="birthstone">Birthstones</SelectItem>
-                  <SelectItem value="friendship">Friendship Sets</SelectItem>
-                  <SelectItem value="charm">Charm Bracelets</SelectItem>
-                  <SelectItem value="minimalist">Minimalist</SelectItem>
+                  <SelectItem value="bracelets">Bracelets</SelectItem>
+                  <SelectItem value="rings">Rings</SelectItem>
+                  <SelectItem value="necklaces">Necklaces</SelectItem>
+                  <SelectItem value="anklets">Anklets</SelectItem>
+                  <SelectItem value="charms">Phone Charms</SelectItem>
+                  <SelectItem value="hair">Hair Accessories</SelectItem>
                   <SelectItem value="occasions">Special Occasions</SelectItem>
                 </SelectContent>
               </Select>

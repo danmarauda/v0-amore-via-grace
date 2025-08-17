@@ -15,7 +15,8 @@ export default function Footer() {
           <div>
             <h4 className="text-base mb-3 font-medium">Amore Via Grace</h4>
             <p className="text-gray-600 text-xs mb-3 leading-relaxed">
-              "Love through Grace" – handcrafted jewelry with heart.
+              Handcrafted with creativity and love in Melbourne. One-of-a-kind jewellery and accessories that bring joy
+              and individuality to everyday life.
             </p>
             <div className="flex space-x-3">
               <Link
@@ -44,7 +45,7 @@ export default function Footer() {
             <ul className="space-y-1">
               <li>
                 <Link href="/shop" className="text-gray-600 hover:text-sage transition-colors text-xs">
-                  All Bracelets
+                  All Accessories
                 </Link>
               </li>
               <li>
@@ -53,13 +54,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/shop/gift-sets" className="text-gray-600 hover:text-sage transition-colors text-xs">
-                  Gift Sets
+                <Link href="/shop/bracelets" className="text-gray-600 hover:text-sage transition-colors text-xs">
+                  Bracelets & Anklets
                 </Link>
               </li>
               <li>
-                <Link href="/shop/new" className="text-gray-600 hover:text-sage transition-colors text-xs">
-                  New Arrivals
+                <Link href="/shop/accessories" className="text-gray-600 hover:text-sage transition-colors text-xs">
+                  Phone Charms & Hair
                 </Link>
               </li>
             </ul>

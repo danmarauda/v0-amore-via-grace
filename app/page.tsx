@@ -72,15 +72,16 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <AnimationObserver className="fade-in">
               <h1 className="text-3xl md:text-5xl mb-5 leading-tight">
-                Handcrafted with <span className="text-sage">Love</span>
+                Handcrafted with <span className="text-sage">Creativity & Love</span> in Melbourne
               </h1>
               <p className="text-gray-600 text-base mb-4 leading-relaxed">
-                Every piece tells a story. From custom name bracelets to birthstone collections, Grace creates
-                meaningful jewelry that celebrates your unique journey.
+                One-of-a-kind jewellery and accessories that bring joy, individuality, and sparkle to everyday life.
+                From custom bracelets and necklaces to phone charms and hair accessories—each piece is personally
+                crafted by Grace with love and attention to detail.
               </p>
               <p className="text-gray-600 text-sm mb-6 italic">
-                "Amore Via Grace" - Love through Grace - where Italian elegance meets Australian craftsmanship in
-                jewelry designed for kids, teens, and young adults.
+                Every piece is handmade with love and creativity—crafted with care to be as unique and meaningful as the
+                person wearing it.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button asChild size="default">
@@ -125,25 +126,21 @@ export default function Home() {
               </div>
             </AnimationObserver>
             <AnimationObserver className="fade-in">
-              <h2 className="text-xl md:text-2xl mb-4">Meet Grace - Young Entrepreneur & Artist</h2>
+              <h2 className="text-xl md:text-2xl mb-4">Meet Grace </h2>
               <p className="text-gray-600 text-sm mb-3 leading-relaxed">
-                At just 16, Grace has transformed her passion for jewelry-making into a thriving business that brings
-                joy to customers across Australia. What started as a creative outlet during school holidays has
-                blossomed into something truly special.
+                Grace Anastasia Sabau started Amore Via Grace in 2021 at just 13 years old, turning her passion for
+                creating beautiful accessories into a thriving small business that serves customers across Australia.
               </p>
               <p className="text-gray-600 text-sm mb-3 leading-relaxed">
-                Grace's Italian heritage shines through in her attention to detail and love for beautiful craftsmanship.
-                Each piece is carefully handmade in her Melbourne studio, where she combines traditional techniques with
-                contemporary designs that speak to young hearts.
+                From her Melbourne studio, Grace handcrafts each piece using carefully selected materials including clay
+                beads, sea beads, glass beads, and unique charms. What began as a creative outlet has grown into a
+                beloved brand featured at local Melbourne markets.
               </p>
               <p className="text-gray-600 text-sm mb-5 leading-relaxed">
-                "I believe jewelry should tell your story," says Grace. "Whether it's a friendship bracelet that
-                celebrates a special bond or a birthstone piece that marks an important milestone, every creation should
-                be as unique as the person wearing it."
+                "I want every piece to bring joy and individuality to the person wearing it," says Grace. "Whether it's
+                a friendship bracelet, a custom phone charm, or a colorful scrunchie, each creation should sparkle with
+                personality and meaning."
               </p>
-              <Button asChild size="sm">
-                <Link href="/about">Read Grace's Full Story</Link>
-              </Button>
             </AnimationObserver>
           </div>
         </div>
@@ -155,8 +152,8 @@ export default function Home() {
           <AnimationObserver className="fade-in">
             <h2 className="text-2xl md:text-3xl text-center mb-4">Our Collections</h2>
             <p className="text-gray-600 text-sm text-center max-w-2xl mx-auto mb-10">
-              From personalized name bracelets to elegant birthstone pieces, discover jewelry that celebrates every
-              moment and milestone.
+              From custom bracelets and necklaces to phone charms and hair accessories—each piece is personally crafted
+              by Grace with love and attention to detail.
             </p>
           </AnimationObserver>
 
@@ -166,12 +163,13 @@ export default function Home() {
                 <div className="w-10 h-10 rounded-full bg-sage flex items-center justify-center text-white text-lg mb-3">
                   ✨
                 </div>
-                <h3 className="text-base mb-2 font-medium">Custom Creations</h3>
+                <h3 className="text-base mb-2 font-medium">Bracelets & Anklets</h3>
                 <p className="text-gray-600 text-xs mb-3 leading-relaxed">
-                  Personalized name bracelets, initial charms, and bespoke designs crafted just for you.
+                  Custom name bracelets, friendship sets, and delicate anklets using clay beads, glass beads, and
+                  charms.
                 </p>
-                <Link href="/shop?category=custom" className="text-sage hover:underline text-xs font-medium">
-                  Explore Custom →
+                <Link href="/shop?category=bracelets" className="text-sage hover:underline text-xs font-medium">
+                  Shop Bracelets →
                 </Link>
               </div>
             </AnimationObserver>
@@ -179,14 +177,14 @@ export default function Home() {
             <AnimationObserver className="fade-in" delay={100}>
               <div className="bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
                 <div className="w-10 h-10 rounded-full bg-sage flex items-center justify-center text-white text-lg mb-3">
-                  💎
+                  💍
                 </div>
-                <h3 className="text-base mb-2 font-medium">Birthstone Collection</h3>
+                <h3 className="text-base mb-2 font-medium">Rings & Necklaces</h3>
                 <p className="text-gray-600 text-xs mb-3 leading-relaxed">
-                  Celebrate your birth month with genuine gemstones in elegant, age-appropriate settings.
+                  Delicate rings and beautiful necklaces crafted with sea beads, pony beads, and personalized charms.
                 </p>
-                <Link href="/shop?category=birthstone" className="text-sage hover:underline text-xs font-medium">
-                  Shop Birthstones →
+                <Link href="/shop?category=rings" className="text-sage hover:underline text-xs font-medium">
+                  Explore Jewelry →
                 </Link>
               </div>
             </AnimationObserver>
@@ -194,14 +192,14 @@ export default function Home() {
             <AnimationObserver className="fade-in" delay={200}>
               <div className="bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
                 <div className="w-10 h-10 rounded-full bg-sage flex items-center justify-center text-white text-lg mb-3">
-                  👭
+                  📱
                 </div>
-                <h3 className="text-base mb-2 font-medium">Friendship Sets</h3>
+                <h3 className="text-base mb-2 font-medium">Phone Charms</h3>
                 <p className="text-gray-600 text-xs mb-3 leading-relaxed">
-                  Matching bracelets and coordinated sets perfect for celebrating special friendships.
+                  Unique phone charms and accessories that add personality and sparkle to your everyday essentials.
                 </p>
-                <Link href="/shop?category=friendship" className="text-sage hover:underline text-xs font-medium">
-                  Find Sets →
+                <Link href="/shop?category=charms" className="text-sage hover:underline text-xs font-medium">
+                  Add Sparkle →
                 </Link>
               </div>
             </AnimationObserver>
@@ -209,14 +207,14 @@ export default function Home() {
             <AnimationObserver className="fade-in" delay={300}>
               <div className="bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
                 <div className="w-10 h-10 rounded-full bg-sage flex items-center justify-center text-white text-lg mb-3">
-                  🎯
+                  🎀
                 </div>
-                <h3 className="text-base mb-2 font-medium">Charm Bracelets</h3>
+                <h3 className="text-base mb-2 font-medium">Hair Accessories</h3>
                 <p className="text-gray-600 text-xs mb-3 leading-relaxed">
-                  Start your charm collection with our beautiful base bracelets and meaningful charms.
+                  Scrunchies and hair accessories that complement your style with playful colors and creative designs.
                 </p>
-                <Link href="/shop?category=charm" className="text-sage hover:underline text-xs font-medium">
-                  Start Collection →
+                <Link href="/shop?category=hair" className="text-sage hover:underline text-xs font-medium">
+                  Style Your Hair →
                 </Link>
               </div>
             </AnimationObserver>
