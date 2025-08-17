@@ -38,7 +38,7 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 px-6 md:px-12",
         isScrolled
           ? isDarkMode
             ? "bg-background/95 backdrop-blur-sm shadow-md shadow-black/20"
@@ -47,28 +47,28 @@ export default function Header() {
       )}
     >
       <div className="container mx-auto flex items-center justify-between">
-        <Link href="/" className="font-medium text-2xl md:text-3xl">
+        <Link href="/" className="font-medium text-xl md:text-2xl">
           <span className="text-sage">Amore</span> Via Grace
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex space-x-6">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-foreground hover:text-sage font-medium transition-all"
+              className="text-foreground hover:text-sage font-medium text-sm transition-all"
             >
               {item.name}
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3">
           <Link href="/cart" className="relative">
-            <ShoppingBag className="h-6 w-6" />
+            <ShoppingBag className="h-5 w-5" />
             {itemCount > 0 && (
-              <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 text-xs">
+              <Badge className="absolute -top-2 -right-2 h-4 w-4 flex items-center justify-center p-0 text-xs">
                 {itemCount}
               </Badge>
             )}
@@ -78,17 +78,17 @@ export default function Header() {
           <Sheet>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <nav className="flex flex-col space-y-6 mt-10">
+              <nav className="flex flex-col space-y-4 mt-8">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="text-xl font-medium hover:text-sage transition-colors"
+                    className="text-lg font-medium hover:text-sage transition-colors"
                   >
                     {item.name}
                   </Link>

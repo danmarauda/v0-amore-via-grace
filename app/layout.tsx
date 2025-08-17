@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   title: "Amore Via Grace | Handmade Custom Bracelets with Heart",
   description:
     "Amore Via Grace – Handmade Custom Bracelets with Heart. Elegant, personalized jewelry crafted by Grace for kids, teens, and young adults.",
-    generator: 'v0.dev'
+    generator: 'v0.app'
 }
 
 export default function RootLayout({

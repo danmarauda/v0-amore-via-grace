@@ -1,30 +1,93 @@
-# AmoreViaGrace
+# Amore Via Grace - Handcrafted Jewelry Website
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+A beautiful, modern e-commerce website for Grace's handcrafted jewelry business, built with Next.js 14, TypeScript, and Tailwind CSS.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/alias-labs/v0-amore-via-grace)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/HjpcZkvI6vt)
+## Features
 
-## Overview
+- 🎨 Modern, minimalist design with sage green and white color palette
+- 📱 Fully responsive design
+- 🌙 Dark/light mode with multiple color themes
+- 🛒 Shopping cart functionality
+- 📸 Live Instagram feed integration
+- ✨ Smooth animations and transitions
+- 🎯 Custom jewelry ordering system
+- 💳 Ready for payment integration
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+## Instagram Integration
+
+The website includes a live Instagram feed that displays Grace's latest posts from [@amore_via_grace](https://www.instagram.com/amore_via_grace/). To set this up:
+
+### 1. Create a Facebook App
+
+1. Go to [Facebook Developers](https://developers.facebook.com/apps/)
+2. Create a new app and select "Consumer" as the app type
+3. Add the Instagram Basic Display product to your app
+
+### 2. Configure Instagram Basic Display
+
+1. In your Facebook app dashboard, go to Instagram Basic Display
+2. Create a new Instagram App ID
+3. Add the @amore_via_grace Instagram account as a test user
+4. Generate an access token for the @amore_via_grace account
+
+### 3. Set Environment Variables
+
+Create a `.env.local` file in your project root:
+
+\`\`\`env
+INSTAGRAM_ACCESS_TOKEN=your_long_lived_access_token_here
+INSTAGRAM_USER_ID=your_instagram_user_id_here
+\`\`\`
+
+Note: The Instagram User ID should correspond to the @amore_via_grace account.
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies:
+   \`\`\`bash
+   npm install
+   \`\`\`
+3. Set up environment variables (see `.env.example`)
+4. Run the development server:
+   \`\`\`bash
+   npm run dev
+   \`\`\`
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## Deployment
 
-Your project is live at:
+The site is optimized for deployment on Vercel:
 
-**[https://vercel.com/alias-labs/v0-amore-via-grace](https://vercel.com/alias-labs/v0-amore-via-grace)**
+1. Connect your GitHub repository to Vercel
+2. Add your environment variables in the Vercel dashboard
+3. Deploy!
 
-## Build your app
+## Tech Stack
 
-Continue building your app on:
+- **Framework**: Next.js 14 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: Radix UI + shadcn/ui
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Instagram API**: Instagram Basic Display API
 
-**[https://v0.dev/chat/projects/HjpcZkvI6vt](https://v0.dev/chat/projects/HjpcZkvI6vt)**
+## Project Structure
 
-## How It Works
+\`\`\`
+├── app/                    # Next.js app directory
+├── components/            # Reusable UI components
+├── lib/                   # Utility functions and API integrations
+├── public/               # Static assets
+├── hooks/                # Custom React hooks
+└── types/                # TypeScript type definitions
+\`\`\`
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## Contributing
+
+This is a private project for Amore Via Grace. For any questions or support, please contact the development team.
+
+## License
+
+Private - All rights reserved by Amore Via Grace.

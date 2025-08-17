@@ -26,15 +26,15 @@ export default function ProductCard({ id, name, description, price, image, delay
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
           />
         </Link>
-        <div className="p-5">
+        <div className="p-4">
           <Link href={`/shop/${id}`}>
-            <h3 className="text-xl mb-2 transition-colors hover:text-sage">{name}</h3>
+            <h3 className="text-base mb-2 font-medium transition-colors hover:text-sage leading-tight">{name}</h3>
           </Link>
-          <p className="text-gray-600 text-sm mb-4 line-clamp-2">{description}</p>
+          <p className="text-gray-600 text-xs mb-3 line-clamp-2 leading-relaxed">{description}</p>
           <div className="flex justify-between items-center">
-            <span className="text-lg font-medium">${price.toFixed(2)}</span>
-            <Button size="sm" variant="outline" className="rounded-full h-9 w-9 p-0">
-              <ShoppingBag className="h-4 w-4" />
+            <span className="text-base font-medium">${price.toFixed(2)}</span>
+            <Button size="sm" variant="outline" className="rounded-full h-8 w-8 p-0 bg-transparent">
+              <ShoppingBag className="h-3 w-3" />
               <span className="sr-only">Add to cart</span>
             </Button>
           </div>

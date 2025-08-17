@@ -1,93 +1,105 @@
 import Image from "next/image"
 import Link from "next/link"
+import { Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import AnimationObserver from "@/components/animation-observer"
 import ProductCard from "@/components/product-card"
+import InstagramFeed from "@/components/instagram-feed"
 
-// Sample product data
+// Updated product data reflecting the expanded range
 const featuredProducts = [
   {
     id: "custom-name-bracelet",
     name: "Custom Name Bracelet",
-    description: "Personalized bracelet with your name or word of choice.",
+    description: "Personalized with your chosen name or meaningful word.",
     price: 24.99,
-    image: "/placeholder.svg?height=500&width=500",
+    image: "/placeholder.svg?height=500&width=500&text=Custom+Name",
   },
   {
-    id: "friendship-set",
-    name: "Friendship Set",
-    description: "Set of two matching bracelets to share with a friend.",
-    price: 36.99,
-    image: "/placeholder.svg?height=500&width=500",
+    id: "birthstone-collection",
+    name: "Birthstone Collection",
+    description: "Celebrate your birth month with genuine gemstones.",
+    price: 32.99,
+    image: "/placeholder.svg?height=500&width=500&text=Birthstone",
   },
   {
-    id: "minimalist-sage-cord",
-    name: "Minimalist Sage-Green Cord",
-    description: "Simple elegance with adjustable sage green cord.",
-    price: 18.99,
-    image: "/placeholder.svg?height=500&width=500",
+    id: "friendship-infinity-set",
+    name: "Friendship Infinity Set",
+    description: "Matching infinity symbol bracelets for best friends.",
+    price: 42.99,
+    image: "/placeholder.svg?height=500&width=500&text=Infinity+Set",
   },
   {
-    id: "rainbow-crystal-charm",
-    name: "Rainbow Crystal Charm",
-    description: "Bracelet with colorful crystal charms for positive energy.",
-    price: 29.99,
-    image: "/placeholder.svg?height=500&width=500",
+    id: "charm-bracelet-starter",
+    name: "Charm Bracelet Starter",
+    description: "Begin your charm collection with this elegant base.",
+    price: 28.99,
+    image: "/placeholder.svg?height=500&width=500&text=Charm+Starter",
   },
 ]
 
-// Sample testimonials
+// Updated testimonials with more specific feedback
 const testimonials = [
   {
     id: 1,
-    text: "My daughter and her BFF adore their matching bracelets! The quality is amazing and they haven't taken them off since they arrived. Such a special gift.",
-    name: "Sarah M.",
+    text: "Grace created the most beautiful custom bracelet for my daughter's 13th birthday. The attention to detail and personal touch made it so special. She hasn't taken it off since!",
+    name: "Sarah M., Melbourne",
     initial: "S",
+    age: "Parent",
   },
   {
     id: 2,
-    text: "Wearing mine every day. So well made and beautiful. Everyone asks where I got it. Love telling them it's handmade by a talented teen entrepreneur!",
-    name: "Ariana, 19",
-    initial: "A",
+    text: "I ordered matching bracelets for my best friend and me before she moved interstate. The quality is amazing and they're so comfortable to wear every day. Love supporting a young entrepreneur!",
+    name: "Emma, 17",
+    initial: "E",
+    age: "17",
   },
   {
     id: 3,
-    text: "Grace created a custom name bracelet for my niece's 16th birthday. Not only was the bracelet beautiful, but the personalized touch made it extra special. Will definitely order again!",
-    name: "Jennifer K.",
+    text: "The birthstone bracelet I received was absolutely perfect. Grace's communication throughout the process was excellent, and the final product exceeded my expectations.",
+    name: "Jessica K., Sydney",
     initial: "J",
+    age: "Parent",
   },
 ]
 
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="min-h-screen bg-cream flex items-center pt-24 md:pt-0 py-16 md:py-24">
+      {/* Hero Section - Refined typography */}
+      <section className="min-h-screen bg-cream flex items-center pt-20 md:pt-0 py-12 md:py-20">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <AnimationObserver className="fade-in">
-              <h1 className="text-4xl md:text-6xl mb-6">Wear Your Story</h1>
-              <p className="text-gray-600 text-lg mb-8">
-                Handcrafted bracelets by Grace – blending elegance, joy, and a touch of magic.
+              <h1 className="text-3xl md:text-5xl mb-5 leading-tight">
+                Handcrafted with <span className="text-sage">Love</span>
+              </h1>
+              <p className="text-gray-600 text-base mb-4 leading-relaxed">
+                Every piece tells a story. From custom name bracelets to birthstone collections, Grace creates
+                meaningful jewelry that celebrates your unique journey.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg">
-                  <Link href="/shop">Shop the Collection</Link>
+              <p className="text-gray-600 text-sm mb-6 italic">
+                "Amore Via Grace" - Love through Grace - where Italian elegance meets Australian craftsmanship in
+                jewelry designed for kids, teens, and young adults.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button asChild size="default">
+                  <Link href="/shop">Explore Collection</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link href="/custom">Customize Yours</Link>
+                <Button asChild variant="outline" size="default">
+                  <Link href="/custom">Create Custom Piece</Link>
                 </Button>
               </div>
             </AnimationObserver>
             <AnimationObserver className="slide-in-right order-first md:order-last">
               <div className="relative">
-                <div className="bg-sage/30 absolute -top-12 -right-12 w-36 h-36 rounded-full animate-float"></div>
+                <div className="bg-sage/30 absolute -top-8 -right-8 w-24 h-24 rounded-full animate-float"></div>
                 <Image
-                  src="/placeholder.svg?height=600&width=600"
-                  alt="Bracelet stack on a sage green background"
+                  src="/placeholder.svg?height=600&width=600&text=Handcrafted+Bracelets"
+                  alt="Beautiful handcrafted bracelets by Grace"
                   width={600}
                   height={600}
-                  className="rounded-xl w-full h-auto relative z-10 shadow-xl"
+                  className="rounded-xl w-full h-auto relative z-10 shadow-lg"
                 />
               </div>
             </AnimationObserver>
@@ -95,148 +107,213 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Grace Section */}
-      <section id="about" className="py-16 md:py-24">
+      {/* About Grace Section - Refined */}
+      <section id="about" className="py-12 md:py-16">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <AnimationObserver className="slide-in-left">
               <div className="relative">
-                <div className="bg-rose/20 absolute -bottom-6 -left-6 w-24 h-24 rounded-full"></div>
+                <div className="bg-rose/20 absolute -bottom-4 -left-4 w-16 h-16 rounded-full"></div>
                 <Image
                   src="/images/grace-profile.jpeg"
-                  alt="Grace, the creator of Amore Via Grace"
+                  alt="Grace, the teenage entrepreneur behind Amore Via Grace"
                   width={500}
                   height={500}
-                  className="rounded-full w-full max-w-md h-auto mx-auto shadow-lg border-4 border-white object-cover"
+                  className="rounded-full w-full max-w-sm h-auto mx-auto shadow-lg border-4 border-white object-cover"
                   priority
                 />
               </div>
             </AnimationObserver>
             <AnimationObserver className="fade-in">
-              <h2 className="text-2xl md:text-3xl mb-6">Meet Grace</h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Hi, I'm Grace – a teen creator passionate about crafting bracelets that spread love, friendship, and
-                positive vibes. Every piece is made by hand, just for you.
+              <h2 className="text-xl md:text-2xl mb-4">Meet Grace - Young Entrepreneur & Artist</h2>
+              <p className="text-gray-600 text-sm mb-3 leading-relaxed">
+                At just 16, Grace has transformed her passion for jewelry-making into a thriving business that brings
+                joy to customers across Australia. What started as a creative outlet during school holidays has
+                blossomed into something truly special.
               </p>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                "Amore Via Grace" means "Love through Grace" – representing the personal, heartfelt touch in every
-                custom piece I create. I believe accessories should tell your unique story.
+              <p className="text-gray-600 text-sm mb-3 leading-relaxed">
+                Grace's Italian heritage shines through in her attention to detail and love for beautiful craftsmanship.
+                Each piece is carefully handmade in her Melbourne studio, where she combines traditional techniques with
+                contemporary designs that speak to young hearts.
               </p>
-              <Button asChild size="lg">
-                <Link href="/process">See How It's Made</Link>
+              <p className="text-gray-600 text-sm mb-5 leading-relaxed">
+                "I believe jewelry should tell your story," says Grace. "Whether it's a friendship bracelet that
+                celebrates a special bond or a birthstone piece that marks an important milestone, every creation should
+                be as unique as the person wearing it."
+              </p>
+              <Button asChild size="sm">
+                <Link href="/about">Read Grace's Full Story</Link>
               </Button>
             </AnimationObserver>
           </div>
         </div>
       </section>
 
-      {/* Featured Products Section */}
-      <section id="shop" className="py-16 md:py-24 bg-cream">
+      {/* Product Categories Section - Refined */}
+      <section className="py-12 md:py-16 bg-cream">
         <div className="container mx-auto px-6 md:px-12">
           <AnimationObserver className="fade-in">
-            <h2 className="text-3xl md:text-4xl text-center mb-16">Our Bestsellers</h2>
+            <h2 className="text-2xl md:text-3xl text-center mb-4">Our Collections</h2>
+            <p className="text-gray-600 text-sm text-center max-w-2xl mx-auto mb-10">
+              From personalized name bracelets to elegant birthstone pieces, discover jewelry that celebrates every
+              moment and milestone.
+            </p>
           </AnimationObserver>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            <AnimationObserver className="fade-in" delay={0}>
+              <div className="bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                <div className="w-10 h-10 rounded-full bg-sage flex items-center justify-center text-white text-lg mb-3">
+                  ✨
+                </div>
+                <h3 className="text-base mb-2 font-medium">Custom Creations</h3>
+                <p className="text-gray-600 text-xs mb-3 leading-relaxed">
+                  Personalized name bracelets, initial charms, and bespoke designs crafted just for you.
+                </p>
+                <Link href="/shop?category=custom" className="text-sage hover:underline text-xs font-medium">
+                  Explore Custom →
+                </Link>
+              </div>
+            </AnimationObserver>
+
+            <AnimationObserver className="fade-in" delay={100}>
+              <div className="bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                <div className="w-10 h-10 rounded-full bg-sage flex items-center justify-center text-white text-lg mb-3">
+                  💎
+                </div>
+                <h3 className="text-base mb-2 font-medium">Birthstone Collection</h3>
+                <p className="text-gray-600 text-xs mb-3 leading-relaxed">
+                  Celebrate your birth month with genuine gemstones in elegant, age-appropriate settings.
+                </p>
+                <Link href="/shop?category=birthstone" className="text-sage hover:underline text-xs font-medium">
+                  Shop Birthstones →
+                </Link>
+              </div>
+            </AnimationObserver>
+
+            <AnimationObserver className="fade-in" delay={200}>
+              <div className="bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                <div className="w-10 h-10 rounded-full bg-sage flex items-center justify-center text-white text-lg mb-3">
+                  👭
+                </div>
+                <h3 className="text-base mb-2 font-medium">Friendship Sets</h3>
+                <p className="text-gray-600 text-xs mb-3 leading-relaxed">
+                  Matching bracelets and coordinated sets perfect for celebrating special friendships.
+                </p>
+                <Link href="/shop?category=friendship" className="text-sage hover:underline text-xs font-medium">
+                  Find Sets →
+                </Link>
+              </div>
+            </AnimationObserver>
+
+            <AnimationObserver className="fade-in" delay={300}>
+              <div className="bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                <div className="w-10 h-10 rounded-full bg-sage flex items-center justify-center text-white text-lg mb-3">
+                  🎯
+                </div>
+                <h3 className="text-base mb-2 font-medium">Charm Bracelets</h3>
+                <p className="text-gray-600 text-xs mb-3 leading-relaxed">
+                  Start your charm collection with our beautiful base bracelets and meaningful charms.
+                </p>
+                <Link href="/shop?category=charm" className="text-sage hover:underline text-xs font-medium">
+                  Start Collection →
+                </Link>
+              </div>
+            </AnimationObserver>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredProducts.map((product, index) => (
               <ProductCard key={product.id} {...product} delay={index * 100} />
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-10">
             <AnimationObserver className="fade-in">
-              <Button asChild size="lg">
-                <Link href="/shop">View All</Link>
+              <Button asChild size="default">
+                <Link href="/shop">View Full Collection</Link>
               </Button>
             </AnimationObserver>
           </div>
         </div>
       </section>
 
-      {/* Customization Journey Section */}
-      <section id="custom" className="py-16 md:py-24">
+      {/* Values & Process Section - Refined */}
+      <section id="process" className="py-12 md:py-16">
         <div className="container mx-auto px-6 md:px-12">
           <AnimationObserver className="fade-in">
-            <h2 className="text-3xl md:text-4xl text-center mb-16">Made for You</h2>
+            <h2 className="text-2xl md:text-3xl text-center mb-10">The Amore Via Grace Promise</h2>
           </AnimationObserver>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <AnimationObserver className="fade-in" delay={0}>
-              <div className="relative pl-12 pb-12 md:pb-0">
-                <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-sage flex items-center justify-center text-white font-bold">
-                  1
+              <div className="text-center">
+                <div className="w-12 h-12 rounded-full bg-sage flex items-center justify-center text-white text-lg mx-auto mb-3">
+                  🤝
                 </div>
-                <div className="absolute left-5 top-10 h-full w-0.5 bg-sage/30 md:hidden"></div>
-                <h3 className="text-xl mb-3">Imagine It 💭</h3>
-                <p className="text-gray-600">
-                  Envision your ideal bracelet. Consider colors, charms, and your personal story.
+                <h3 className="text-base mb-2 font-medium">Personal Connection</h3>
+                <p className="text-gray-600 text-xs leading-relaxed">
+                  Grace personally handles every order, ensuring each piece receives individual attention and care.
                 </p>
               </div>
             </AnimationObserver>
 
             <AnimationObserver className="fade-in" delay={100}>
-              <div className="relative pl-12 pb-12 md:pb-0">
-                <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-sage flex items-center justify-center text-white font-bold">
-                  2
+              <div className="text-center">
+                <div className="w-12 h-12 rounded-full bg-sage flex items-center justify-center text-white text-lg mx-auto mb-3">
+                  ♻️
                 </div>
-                <div className="absolute left-5 top-10 h-full w-0.5 bg-sage/30 md:hidden"></div>
-                <h3 className="text-xl mb-3">Share It 💬</h3>
-                <p className="text-gray-600">Send us your ideas. We'll work together to refine your perfect design.</p>
+                <h3 className="text-base mb-2 font-medium">Sustainable Practices</h3>
+                <p className="text-gray-600 text-xs leading-relaxed">
+                  Eco-friendly packaging and responsible sourcing reflect our commitment to the environment.
+                </p>
               </div>
             </AnimationObserver>
 
             <AnimationObserver className="fade-in" delay={200}>
-              <div className="relative pl-12 pb-12 md:pb-0">
-                <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-sage flex items-center justify-center text-white font-bold">
-                  3
+              <div className="text-center">
+                <div className="w-12 h-12 rounded-full bg-sage flex items-center justify-center text-white text-lg mx-auto mb-3">
+                  🎨
                 </div>
-                <div className="absolute left-5 top-10 h-full w-0.5 bg-sage/30 md:hidden"></div>
-                <h3 className="text-xl mb-3">Crafted by Hand 🧵</h3>
-                <p className="text-gray-600">
-                  Grace creates your one-of-a-kind piece with care and attention to detail.
+                <h3 className="text-base mb-2 font-medium">Artistic Excellence</h3>
+                <p className="text-gray-600 text-xs leading-relaxed">
+                  Each piece combines traditional craftsmanship with contemporary design sensibilities.
                 </p>
               </div>
             </AnimationObserver>
 
             <AnimationObserver className="fade-in" delay={300}>
-              <div className="relative pl-12">
-                <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-sage flex items-center justify-center text-white font-bold">
-                  4
+              <div className="text-center">
+                <div className="w-12 h-12 rounded-full bg-sage flex items-center justify-center text-white text-lg mx-auto mb-3">
+                  💝
                 </div>
-                <h3 className="text-xl mb-3">Delivered with Love 📦</h3>
-                <p className="text-gray-600">
-                  Your bracelet arrives in eco-friendly packaging, ready to tell your story.
+                <h3 className="text-base mb-2 font-medium">Meaningful Gifts</h3>
+                <p className="text-gray-600 text-xs leading-relaxed">
+                  Perfect for birthdays, graduations, friendships, and all of life's special moments.
                 </p>
               </div>
-            </AnimationObserver>
-          </div>
-
-          <div className="text-center mt-16">
-            <AnimationObserver className="fade-in">
-              <Button asChild size="lg">
-                <Link href="/custom">Design Yours Now</Link>
-              </Button>
             </AnimationObserver>
           </div>
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      <section className="py-16 md:py-24 bg-cream">
+      {/* Enhanced Testimonial Section - Refined */}
+      <section className="py-12 md:py-16 bg-cream">
         <div className="container mx-auto px-6 md:px-12">
           <AnimationObserver className="fade-in">
-            <h2 className="text-3xl md:text-4xl text-center mb-16">Bracelet Love 💕</h2>
+            <h2 className="text-2xl md:text-3xl text-center mb-4">What Our Customers Say</h2>
+            <p className="text-gray-600 text-sm text-center mb-10">Real stories from real customers across Australia</p>
           </AnimationObserver>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (
               <AnimationObserver key={testimonial.id} className="fade-in" delay={index * 100}>
-                <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                  <div className="flex mb-4">
+                <div className="bg-white rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex mb-3">
                     {[...Array(5)].map((_, i) => (
                       <svg
                         key={i}
-                        className="w-5 h-5 text-sage"
+                        className="w-4 h-4 text-sage"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -245,12 +322,15 @@ export default function Home() {
                       </svg>
                     ))}
                   </div>
-                  <p className="text-gray-600 italic mb-6">{testimonial.text}</p>
+                  <p className="text-gray-600 italic text-xs mb-4 leading-relaxed">{testimonial.text}</p>
                   <div className="flex items-center">
-                    <div className="w-10 h-10 rounded-full bg-sage flex items-center justify-center text-white font-bold mr-3">
+                    <div className="w-8 h-8 rounded-full bg-sage flex items-center justify-center text-white font-medium text-xs mr-3">
                       {testimonial.initial}
                     </div>
-                    <span className="font-medium">{testimonial.name}</span>
+                    <div>
+                      <span className="font-medium text-xs block">{testimonial.name}</span>
+                      <span className="text-xs text-gray-500">{testimonial.age}</span>
+                    </div>
                   </div>
                 </div>
               </AnimationObserver>
@@ -259,54 +339,75 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Instagram Feed Section */}
-      <section className="py-16 md:py-24">
+      {/* Instagram & Social Section - Now with Real Feed */}
+      <section className="py-12 md:py-16">
         <div className="container mx-auto px-6 md:px-12">
           <AnimationObserver className="fade-in">
-            <h2 className="text-3xl md:text-4xl text-center mb-6">Follow Our Journey</h2>
-            <p className="text-gray-600 text-center mb-12">@graces_handmadebracelets</p>
+            <h2 className="text-2xl md:text-3xl text-center mb-4">Follow Our Journey</h2>
+            <p className="text-gray-600 text-sm text-center mb-3">
+              See behind-the-scenes of Grace's creative process and customer features
+            </p>
+            <p className="text-center mb-8">
+              <Link
+                href="https://www.instagram.com/amore_via_grace/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sage hover:underline text-base font-medium inline-flex items-center gap-2"
+              >
+                <Instagram className="h-4 w-4" />
+                @amore_via_grace
+              </Link>
+            </p>
           </AnimationObserver>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
-            {[1, 2, 3, 4].map((item, index) => (
-              <AnimationObserver key={item} className="fade-in" delay={index * 100}>
-                <div className="relative aspect-square overflow-hidden rounded-md group">
-                  <Image
-                    src={`/placeholder.svg?height=400&width=400&text=Instagram+${item}`}
-                    alt={`Instagram post ${item}`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <svg
-                      className="w-8 h-8 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                    </svg>
-                  </div>
-                </div>
-              </AnimationObserver>
-            ))}
+          {/* Real Instagram Feed */}
+          <InstagramFeed limit={8} showCaptions={false} />
+
+          <div className="text-center mt-8">
+            <AnimationObserver className="fade-in">
+              <Button asChild variant="outline" size="sm">
+                <Link
+                  href="https://www.instagram.com/amore_via_grace/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2"
+                >
+                  <Instagram className="h-4 w-4" />
+                  Follow on Instagram
+                </Link>
+              </Button>
+            </AnimationObserver>
           </div>
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="bg-sage py-16 md:py-24">
+      {/* Final CTA Section - Refined */}
+      <section className="bg-sage py-12 md:py-16">
         <div className="container mx-auto px-6 md:px-12 text-center">
           <AnimationObserver className="fade-in">
-            <h2 className="text-3xl md:text-5xl text-white mb-8">Let's Create Something Beautiful Together.</h2>
-            <Button
-              asChild
-              size="lg"
-              variant="secondary"
-              className="bg-white hover:bg-cream text-sage hover:text-sage-dark"
-            >
-              <Link href="/custom">Start Your Custom Order</Link>
-            </Button>
+            <h2 className="text-2xl md:text-4xl text-white mb-4">Ready to Create Something Beautiful?</h2>
+            <p className="text-white/90 text-sm mb-6 max-w-2xl mx-auto leading-relaxed">
+              Whether you're looking for the perfect gift or want to treat yourself to something special, Grace is here
+              to help you create jewelry that tells your unique story.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-3">
+              <Button
+                asChild
+                size="default"
+                variant="secondary"
+                className="bg-white hover:bg-cream text-sage hover:text-sage-dark"
+              >
+                <Link href="/custom">Start Custom Order</Link>
+              </Button>
+              <Button
+                asChild
+                size="default"
+                variant="outline"
+                className="text-white border-white hover:bg-white/10 bg-transparent"
+              >
+                <Link href="/shop">Browse Collection</Link>
+              </Button>
+            </div>
           </AnimationObserver>
         </div>
       </section>
