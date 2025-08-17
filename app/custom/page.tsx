@@ -20,6 +20,28 @@ export default function CustomPage() {
         </div>
       </section>
 
+      {/* Design Studio CTA */}
+      <section className="py-12 bg-sage/10">
+        <div className="container mx-auto px-6 md:px-12">
+          <AnimationObserver className="fade-in">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="text-2xl md:text-3xl mb-4">Try Our Interactive Design Studio!</h2>
+              <p className="text-gray-600 mb-6">
+                Want to see your bracelet come to life before ordering? Use our interactive design studio to experiment
+                with colors, patterns, and styles. Create your perfect design and then contact Grace to bring it to
+                reality!
+              </p>
+              <Button asChild size="lg" className="mb-4">
+                <Link href="https://avg-studio.vercel.app" target="_blank" rel="noopener noreferrer">
+                  Launch Design Studio ✨
+                </Link>
+              </Button>
+              <p className="text-sm text-gray-500">Design online, then submit your custom order below</p>
+            </div>
+          </AnimationObserver>
+        </div>
+      </section>
+
       <section className="py-16">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

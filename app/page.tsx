@@ -88,7 +88,12 @@ export default function Home() {
                   <Link href="/shop">Explore Collection</Link>
                 </Button>
                 <Button asChild variant="outline" size="default">
-                  <Link href="/custom">Create Custom Piece</Link>
+                  <Link href="https://avg-studio.vercel.app" target="_blank" rel="noopener noreferrer">
+                    Design Studio ✨
+                  </Link>
+                </Button>
+                <Button asChild variant="ghost" size="default" className="text-sage hover:text-sage-dark">
+                  <Link href="/custom">Custom Orders</Link>
                 </Button>
               </div>
             </AnimationObserver>

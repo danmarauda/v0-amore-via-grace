@@ -13,6 +13,7 @@ import { useThemeTransition } from "@/hooks/use-theme-transition"
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Shop", href: "/shop" },
+  { name: "Design Studio", href: "https://avg-studio.vercel.app", external: true },
   { name: "Custom", href: "/custom" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
@@ -120,6 +121,16 @@ export default function Header() {
             </div>
           </div>
 
+          <Link
+            href="https://avg-studio.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground hover:text-sage font-medium text-sm transition-all flex items-center"
+          >
+            Design Studio
+            <span className="ml-1 text-xs">✨</span>
+          </Link>
+
           <Link href="/custom" className="text-foreground hover:text-sage font-medium text-sm transition-all">
             Custom
           </Link>
@@ -219,6 +230,15 @@ export default function Header() {
                     </Link>
                   </div>
                 </div>
+
+                <Link
+                  href="https://avg-studio.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-lg font-medium hover:text-sage transition-colors flex items-center"
+                >
+                  Design Studio ✨
+                </Link>
 
                 <Link href="/custom" className="text-lg font-medium hover:text-sage transition-colors">
                   Custom Design
