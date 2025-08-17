@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, ShoppingBag } from "lucide-react"
+import { Menu, ShoppingBag, ChevronDown, Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { useCart } from "@/components/cart-provider"
@@ -52,16 +52,119 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6">
-          {navItems.map((item) => (
+        <nav className="hidden md:flex items-center space-x-8">
+          <div className="relative group">
             <Link
-              key={item.name}
-              href={item.href}
-              className="text-foreground hover:text-sage font-medium text-sm transition-all"
+              href="/shop"
+              className="text-foreground hover:text-sage font-medium text-sm transition-all flex items-center"
             >
-              {item.name}
+              Shop
+              <ChevronDown className="ml-1 h-3 w-3 transition-transform group-hover:rotate-180" />
             </Link>
-          ))}
+
+            {/* Shop Dropdown */}
+            <div className="absolute top-full left-0 mt-2 w-64 bg-background border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="p-4">
+                <div className="grid grid-cols-1 gap-3">
+                  <Link
+                    href="/shop?category=bracelets"
+                    className="flex items-center p-2 rounded-md hover:bg-muted transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-sage/20 flex items-center justify-center mr-3">✨</div>
+                    <div>
+                      <div className="font-medium text-sm">Bracelets & Anklets</div>
+                      <div className="text-xs text-muted-foreground">Custom names, friendship sets</div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/shop?category=rings"
+                    className="flex items-center p-2 rounded-md hover:bg-muted transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-sage/20 flex items-center justify-center mr-3">💍</div>
+                    <div>
+                      <div className="font-medium text-sm">Rings & Necklaces</div>
+                      <div className="text-xs text-muted-foreground">Stackable rings, charm necklaces</div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/shop?category=charms"
+                    className="flex items-center p-2 rounded-md hover:bg-muted transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-sage/20 flex items-center justify-center mr-3">📱</div>
+                    <div>
+                      <div className="font-medium text-sm">Phone Charms</div>
+                      <div className="text-xs text-muted-foreground">Unique beaded accessories</div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/shop?category=hair"
+                    className="flex items-center p-2 rounded-md hover:bg-muted transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-sage/20 flex items-center justify-center mr-3">🎀</div>
+                    <div>
+                      <div className="font-medium text-sm">Hair Accessories</div>
+                      <div className="text-xs text-muted-foreground">Scrunchies & hair decorations</div>
+                    </div>
+                  </Link>
+                </div>
+
+                <div className="border-t border-border mt-3 pt-3">
+                  <Link href="/shop" className="block text-center text-sm font-medium text-sage hover:underline">
+                    View All Products →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <Link href="/custom" className="text-foreground hover:text-sage font-medium text-sm transition-all">
+            Custom
+          </Link>
+
+          <Link href="/about" className="text-foreground hover:text-sage font-medium text-sm transition-all">
+            About
+          </Link>
+
+          <div className="relative group">
+            <button className="text-foreground hover:text-sage font-medium text-sm transition-all flex items-center">
+              More
+              <ChevronDown className="ml-1 h-3 w-3 transition-transform group-hover:rotate-180" />
+            </button>
+
+            {/* More Dropdown */}
+            <div className="absolute top-full right-0 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="p-2">
+                <Link href="/contact" className="block px-3 py-2 text-sm hover:bg-muted rounded-md transition-colors">
+                  Contact
+                </Link>
+                <Link href="/faq" className="block px-3 py-2 text-sm hover:bg-muted rounded-md transition-colors">
+                  FAQ
+                </Link>
+                <Link href="/shipping" className="block px-3 py-2 text-sm hover:bg-muted rounded-md transition-colors">
+                  Shipping Info
+                </Link>
+                <Link
+                  href="/care-guide"
+                  className="block px-3 py-2 text-sm hover:bg-muted rounded-md transition-colors"
+                >
+                  Care Guide
+                </Link>
+                <div className="border-t border-border my-2"></div>
+                <Link
+                  href="https://www.instagram.com/amore_via_grace/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center px-3 py-2 text-sm hover:bg-muted rounded-md transition-colors"
+                >
+                  <Instagram className="h-4 w-4 mr-2" />
+                  Follow Us
+                </Link>
+              </div>
+            </div>
+          </div>
         </nav>
 
         <div className="flex items-center space-x-3">
@@ -83,16 +186,86 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <nav className="flex flex-col space-y-4 mt-8">
-                {navItems.map((item) => (
+              <nav className="flex flex-col space-y-6 mt-8">
+                <div>
+                  <h3 className="font-medium text-lg mb-3">Shop</h3>
+                  <div className="space-y-2 ml-4">
+                    <Link
+                      href="/shop?category=bracelets"
+                      className="block text-sm text-muted-foreground hover:text-sage transition-colors"
+                    >
+                      Bracelets & Anklets
+                    </Link>
+                    <Link
+                      href="/shop?category=rings"
+                      className="block text-sm text-muted-foreground hover:text-sage transition-colors"
+                    >
+                      Rings & Necklaces
+                    </Link>
+                    <Link
+                      href="/shop?category=charms"
+                      className="block text-sm text-muted-foreground hover:text-sage transition-colors"
+                    >
+                      Phone Charms
+                    </Link>
+                    <Link
+                      href="/shop?category=hair"
+                      className="block text-sm text-muted-foreground hover:text-sage transition-colors"
+                    >
+                      Hair Accessories
+                    </Link>
+                    <Link href="/shop" className="block text-sm font-medium text-sage hover:underline">
+                      View All →
+                    </Link>
+                  </div>
+                </div>
+
+                <Link href="/custom" className="text-lg font-medium hover:text-sage transition-colors">
+                  Custom Design
+                </Link>
+
+                <Link href="/about" className="text-lg font-medium hover:text-sage transition-colors">
+                  About Grace
+                </Link>
+
+                <div>
+                  <h3 className="font-medium text-lg mb-3">Support</h3>
+                  <div className="space-y-2 ml-4">
+                    <Link
+                      href="/contact"
+                      className="block text-sm text-muted-foreground hover:text-sage transition-colors"
+                    >
+                      Contact
+                    </Link>
+                    <Link href="/faq" className="block text-sm text-muted-foreground hover:text-sage transition-colors">
+                      FAQ
+                    </Link>
+                    <Link
+                      href="/shipping"
+                      className="block text-sm text-muted-foreground hover:text-sage transition-colors"
+                    >
+                      Shipping Info
+                    </Link>
+                    <Link
+                      href="/care-guide"
+                      className="block text-sm text-muted-foreground hover:text-sage transition-colors"
+                    >
+                      Care Guide
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="border-t border-border pt-4">
                   <Link
-                    key={item.name}
-                    href={item.href}
-                    className="text-lg font-medium hover:text-sage transition-colors"
+                    href="https://www.instagram.com/amore_via_grace/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-lg font-medium hover:text-sage transition-colors"
                   >
-                    {item.name}
+                    <Instagram className="h-5 w-5 mr-2" />
+                    Follow on Instagram
                   </Link>
-                ))}
+                </div>
               </nav>
             </SheetContent>
           </Sheet>

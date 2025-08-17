@@ -96,8 +96,8 @@ export default function Home() {
               <div className="relative">
                 <div className="bg-sage/30 absolute -top-8 -right-8 w-24 h-24 rounded-full animate-float"></div>
                 <Image
-                  src="/placeholder.svg?height=600&width=600&text=Handcrafted+Bracelets"
-                  alt="Beautiful handcrafted bracelets by Grace"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hero.jpg-QNDKUO9Cb1kvx0hKEsJvQPkkxqvMAn.jpeg"
+                  alt="Beautiful handcrafted bracelets and colorful beads used by Grace at Amore Via Grace"
                   width={600}
                   height={600}
                   className="rounded-xl w-full h-auto relative z-10 shadow-lg"
