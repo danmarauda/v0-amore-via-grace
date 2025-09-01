@@ -20,25 +20,77 @@ export default function CustomPage() {
         </div>
       </section>
 
-      {/* Design Studio CTA */}
-      <section className="py-12 bg-sage/10">
+      {/* Design Studio CTA with Preview */}
+      <section className="py-16 bg-sage/10">
         <div className="container mx-auto px-6 md:px-12">
-          <AnimationObserver className="fade-in">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl mb-4">Try Our Interactive Design Studio!</h2>
-              <p className="text-gray-600 mb-6">
-                Want to see your bracelet come to life before ordering? Use our interactive design studio to experiment
-                with colors, patterns, and styles. Create your perfect design and then contact Grace to bring it to
-                reality!
-              </p>
-              <Button asChild size="lg" className="mb-4">
-                <Link href="https://avg-studio.vercel.app" target="_blank" rel="noopener noreferrer">
-                  Launch Design Studio ✨
-                </Link>
-              </Button>
-              <p className="text-sm text-gray-500">Design online, then submit your custom order below</p>
-            </div>
-          </AnimationObserver>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <AnimationObserver className="slide-in-left">
+              <div>
+                <h2 className="text-2xl md:text-3xl mb-4">Try Our Interactive Design Studio!</h2>
+                <p className="text-gray-600 mb-6">
+                  Want to see your bracelet come to life before ordering? Use our interactive design studio to
+                  experiment with colors, patterns, and styles. Create your perfect design and then contact Grace to
+                  bring it to reality!
+                </p>
+                <div className="space-y-4">
+                  <Button asChild size="lg">
+                    <Link href="https://avg-studio.vercel.app" target="_blank" rel="noopener noreferrer">
+                      Launch Design Studio ✨
+                    </Link>
+                  </Button>
+                  <p className="text-sm text-gray-500">Design online, then submit your custom order below</p>
+                </div>
+
+                <div className="mt-8 space-y-3">
+                  <h3 className="text-lg font-medium">Studio Features:</h3>
+                  <ul className="space-y-2 text-gray-600">
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-sage rounded-full mr-3"></div>
+                      Interactive bead selection and placement
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-sage rounded-full mr-3"></div>
+                      Real-time design preview
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-sage rounded-full mr-3"></div>
+                      Color and pattern experimentation
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-2 h-2 bg-sage rounded-full mr-3"></div>
+                      Save and share your designs
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </AnimationObserver>
+
+            <AnimationObserver className="slide-in-right">
+              <div className="relative">
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <Image
+                    src="/design-studio-preview.png"
+                    alt="Interactive bracelet design studio interface preview"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3">
+                      <p className="text-sm font-medium text-gray-800">
+                        🎨 Design your perfect bracelet with our interactive studio
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Decorative elements */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-sage/30 rounded-full"></div>
+                <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-cream/50 rounded-full"></div>
+              </div>
+            </AnimationObserver>
+          </div>
         </div>
       </section>
 
