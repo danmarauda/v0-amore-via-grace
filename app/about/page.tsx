@@ -27,7 +27,7 @@ export default function AboutPage() {
                 <div className="bg-sage/20 absolute -top-8 -right-8 w-32 h-32 rounded-full"></div>
                 <Image
                   src="/images/grace-profile.jpeg"
-                  alt="Grace, the 16-year-old founder of Amore Via Grace"
+                  alt="Grace, the 14-year-old founder of Amore Via Grace"
                   width={600}
                   height={600}
                   className="rounded-lg relative z-10 object-cover shadow-lg"
@@ -41,7 +41,7 @@ export default function AboutPage() {
                 <h2 className="text-2xl md:text-3xl mb-6">Meet Grace Anastasia Sabau - Creative Entrepreneur</h2>
                 <p className="text-gray-600 mb-4 leading-relaxed">
                   Grace founded Amore Via Grace in 2021 when she was just 13 years old, transforming her love for
-                  creating beautiful accessories into a thriving small business. Now 16, she continues to personally
+                  creating beautiful accessories into a thriving small business. Now 14, she continues to personally
                   handcraft every piece from her Melbourne studio.
                 </p>
                 <p className="text-gray-600 mb-4 leading-relaxed">

@@ -1,294 +1,227 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
-import { Menu, ShoppingBag, ChevronDown, Instagram } from "lucide-react"
+import { Menu, ChevronDown, Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { useCart } from "@/components/cart-provider"
-import { Badge } from "@/components/ui/badge"
-import { cn } from "@/lib/utils"
-import { useThemeTransition } from "@/hooks/use-theme-transition"
-
-const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Shop", href: "/shop" },
-  { name: "Design Studio", href: "https://avg-studio.vercel.app", external: true },
-  { name: "Custom", href: "/custom" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
-]
+import { ThemeSelector } from "./theme-selector"
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const { items } = useCart()
-  const itemCount = items.length
+  const [isOpen, setIsOpen] = useState(false)
 
-  // Use the theme transition hook
-  const { isDarkMode } = useThemeTransition()
+  const shopCategories = [
+    { name: "Bracelets & Anklets", href: "/shop?category=bracelets", emoji: "✨" },
+    { name: "Rings & Necklaces", href: "/shop?category=rings", emoji: "💍" },
+    { name: "Phone Charms", href: "/shop?category=charms", emoji: "📱" },
+    { name: "Hair Accessories", href: "/shop?category=hair", emoji: "🎀" },
+  ]
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  const morePages = [
+    { name: "Contact", href: "/contact" },
+    { name: "FAQ", href: "/faq" },
+    { name: "Shipping", href: "/shipping" },
+    { name: "Care Guide", href: "/care-guide" },
+    { name: "Instagram", href: "https://www.instagram.com/amore_via_grace/", external: true },
+  ]
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 px-6 md:px-12",
-        isScrolled
-          ? isDarkMode
-            ? "bg-background/95 backdrop-blur-sm shadow-md shadow-black/20"
-            : "bg-white/95 backdrop-blur-sm shadow-sm"
-          : "bg-transparent",
-      )}
-    >
-      <div className="container mx-auto flex items-center justify-between">
-        <Link href="/" className="font-medium text-xl md:text-2xl">
-          <span className="text-sage">Amore</span> Via Grace
-        </Link>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-full bg-sage flex items-center justify-center">
+              <span className="text-white font-bold text-lg">A</span>
+            </div>
+            <div className="hidden sm:block">
+              <span className="text-xl font-bold text-gray-900">Amore Via Grace</span>
+              <p className="text-xs text-gray-500 -mt-1">Handcrafted in Melbourne</p>
+            </div>
+          </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <div className="relative group">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-8">
+            {/* Shop Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center space-x-1 text-gray-700 hover:text-sage transition-colors">
+                <span>Shop</span>
+                <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-56">
+                <DropdownMenuItem asChild>
+                  <Link href="/shop" className="w-full">
+                    <span className="mr-2">🛍️</span>
+                    All Products
+                  </Link>
+                </DropdownMenuItem>
+                <div className="border-t my-1"></div>
+                {shopCategories.map((category) => (
+                  <DropdownMenuItem key={category.name} asChild>
+                    <Link href={category.href} className="w-full">
+                      <span className="mr-2">{category.emoji}</span>
+                      {category.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+                <div className="border-t my-1"></div>
+                <DropdownMenuItem asChild>
+                  <Link href="/custom" className="w-full">
+                    <span className="mr-2">🎨</span>
+                    Custom Orders
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Design Studio Link */}
             <Link
-              href="/shop"
-              className="text-foreground hover:text-sage font-medium text-sm transition-all flex items-center"
+              href="https://avg-studio.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700 hover:text-sage transition-colors font-medium"
             >
-              Shop
-              <ChevronDown className="ml-1 h-3 w-3 transition-transform group-hover:rotate-180" />
+              Design Studio ✨
             </Link>
 
-            {/* Shop Dropdown */}
-            <div className="absolute top-full left-0 mt-2 w-64 bg-background border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-              <div className="p-4">
-                <div className="grid grid-cols-1 gap-3">
-                  <Link
-                    href="/shop?category=bracelets"
-                    className="flex items-center p-2 rounded-md hover:bg-muted transition-colors"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-sage/20 flex items-center justify-center mr-3">✨</div>
-                    <div>
-                      <div className="font-medium text-sm">Bracelets & Anklets</div>
-                      <div className="text-xs text-muted-foreground">Custom names, friendship sets</div>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="/shop?category=rings"
-                    className="flex items-center p-2 rounded-md hover:bg-muted transition-colors"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-sage/20 flex items-center justify-center mr-3">💍</div>
-                    <div>
-                      <div className="font-medium text-sm">Rings & Necklaces</div>
-                      <div className="text-xs text-muted-foreground">Stackable rings, charm necklaces</div>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="/shop?category=charms"
-                    className="flex items-center p-2 rounded-md hover:bg-muted transition-colors"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-sage/20 flex items-center justify-center mr-3">📱</div>
-                    <div>
-                      <div className="font-medium text-sm">Phone Charms</div>
-                      <div className="text-xs text-muted-foreground">Unique beaded accessories</div>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="/shop?category=hair"
-                    className="flex items-center p-2 rounded-md hover:bg-muted transition-colors"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-sage/20 flex items-center justify-center mr-3">🎀</div>
-                    <div>
-                      <div className="font-medium text-sm">Hair Accessories</div>
-                      <div className="text-xs text-muted-foreground">Scrunchies & hair decorations</div>
-                    </div>
-                  </Link>
-                </div>
-
-                <div className="border-t border-border mt-3 pt-3">
-                  <Link href="/shop" className="block text-center text-sm font-medium text-sage hover:underline">
-                    View All Products →
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <Link
-            href="https://avg-studio.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground hover:text-sage font-medium text-sm transition-all flex items-center"
-          >
-            Design Studio
-            <span className="ml-1 text-xs">✨</span>
-          </Link>
-
-          <Link href="/custom" className="text-foreground hover:text-sage font-medium text-sm transition-all">
-            Custom
-          </Link>
-
-          <Link href="/about" className="text-foreground hover:text-sage font-medium text-sm transition-all">
-            About
-          </Link>
-
-          <div className="relative group">
-            <button className="text-foreground hover:text-sage font-medium text-sm transition-all flex items-center">
-              More
-              <ChevronDown className="ml-1 h-3 w-3 transition-transform group-hover:rotate-180" />
-            </button>
+            {/* About Link */}
+            <Link href="/about" className="text-gray-700 hover:text-sage transition-colors">
+              About
+            </Link>
 
             {/* More Dropdown */}
-            <div className="absolute top-full right-0 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-              <div className="p-2">
-                <Link href="/contact" className="block px-3 py-2 text-sm hover:bg-muted rounded-md transition-colors">
-                  Contact
-                </Link>
-                <Link href="/faq" className="block px-3 py-2 text-sm hover:bg-muted rounded-md transition-colors">
-                  FAQ
-                </Link>
-                <Link href="/shipping" className="block px-3 py-2 text-sm hover:bg-muted rounded-md transition-colors">
-                  Shipping Info
-                </Link>
-                <Link
-                  href="/care-guide"
-                  className="block px-3 py-2 text-sm hover:bg-muted rounded-md transition-colors"
-                >
-                  Care Guide
-                </Link>
-                <div className="border-t border-border my-2"></div>
-                <Link
-                  href="https://www.instagram.com/amore_via_grace/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center px-3 py-2 text-sm hover:bg-muted rounded-md transition-colors"
-                >
-                  <Instagram className="h-4 w-4 mr-2" />
-                  Follow Us
-                </Link>
-              </div>
-            </div>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center space-x-1 text-gray-700 hover:text-sage transition-colors">
+                <span>More</span>
+                <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                {morePages.map((page) => (
+                  <DropdownMenuItem key={page.name} asChild>
+                    {page.external ? (
+                      <Link
+                        href={page.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full flex items-center"
+                      >
+                        {page.name === "Instagram" && <Instagram className="h-4 w-4 mr-2" />}
+                        {page.name}
+                      </Link>
+                    ) : (
+                      <Link href={page.href} className="w-full">
+                        {page.name}
+                      </Link>
+                    )}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </nav>
+
+          {/* Right side - Theme Selector and Mobile Menu */}
+          <div className="flex items-center space-x-4">
+            <ThemeSelector />
+
+            {/* Mobile Menu */}
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild className="lg:hidden">
+                <Button variant="ghost" size="sm">
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-80">
+                <div className="flex flex-col space-y-6 mt-6">
+                  {/* Mobile Logo */}
+                  <div className="flex items-center space-x-3 pb-4 border-b">
+                    <div className="w-8 h-8 rounded-full bg-sage flex items-center justify-center">
+                      <span className="text-white font-bold">A</span>
+                    </div>
+                    <div>
+                      <span className="font-bold text-gray-900">Amore Via Grace</span>
+                      <p className="text-xs text-gray-500">Handcrafted in Melbourne</p>
+                    </div>
+                  </div>
+
+                  {/* Mobile Navigation */}
+                  <nav className="flex flex-col space-y-4">
+                    {/* Shop Section */}
+                    <div>
+                      <Link
+                        href="/shop"
+                        className="text-lg font-medium text-gray-900 mb-3 block"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        🛍️ Shop All Products
+                      </Link>
+                      <div className="ml-4 space-y-2">
+                        {shopCategories.map((category) => (
+                          <Link
+                            key={category.name}
+                            href={category.href}
+                            className="block text-gray-600 hover:text-sage transition-colors"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {category.emoji} {category.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Design Studio */}
+                    <Link
+                      href="https://avg-studio.vercel.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-lg font-medium text-gray-900 hover:text-sage transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      ✨ Design Studio
+                    </Link>
+
+                    {/* Custom Orders */}
+                    <Link
+                      href="/custom"
+                      className="text-lg font-medium text-gray-900 hover:text-sage transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      🎨 Custom Orders
+                    </Link>
+
+                    {/* About */}
+                    <Link
+                      href="/about"
+                      className="text-lg font-medium text-gray-900 hover:text-sage transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      About Grace
+                    </Link>
+
+                    {/* More Pages */}
+                    <div className="pt-4 border-t">
+                      <p className="text-sm font-medium text-gray-500 mb-3">Support & Info</p>
+                      <div className="space-y-2">
+                        {morePages.map((page) => (
+                          <Link
+                            key={page.name}
+                            href={page.href}
+                            target={page.external ? "_blank" : undefined}
+                            rel={page.external ? "noopener noreferrer" : undefined}
+                            className="block text-gray-600 hover:text-sage transition-colors flex items-center"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {page.name === "Instagram" && <Instagram className="h-4 w-4 mr-2" />}
+                            {page.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
-        </nav>
-
-        <div className="flex items-center space-x-3">
-          <Link href="/cart" className="relative">
-            <ShoppingBag className="h-5 w-5" />
-            {itemCount > 0 && (
-              <Badge className="absolute -top-2 -right-2 h-4 w-4 flex items-center justify-center p-0 text-xs">
-                {itemCount}
-              </Badge>
-            )}
-          </Link>
-
-          {/* Mobile Menu */}
-          <Sheet>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon">
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Toggle menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <nav className="flex flex-col space-y-6 mt-8">
-                <div>
-                  <h3 className="font-medium text-lg mb-3">Shop</h3>
-                  <div className="space-y-2 ml-4">
-                    <Link
-                      href="/shop?category=bracelets"
-                      className="block text-sm text-muted-foreground hover:text-sage transition-colors"
-                    >
-                      Bracelets & Anklets
-                    </Link>
-                    <Link
-                      href="/shop?category=rings"
-                      className="block text-sm text-muted-foreground hover:text-sage transition-colors"
-                    >
-                      Rings & Necklaces
-                    </Link>
-                    <Link
-                      href="/shop?category=charms"
-                      className="block text-sm text-muted-foreground hover:text-sage transition-colors"
-                    >
-                      Phone Charms
-                    </Link>
-                    <Link
-                      href="/shop?category=hair"
-                      className="block text-sm text-muted-foreground hover:text-sage transition-colors"
-                    >
-                      Hair Accessories
-                    </Link>
-                    <Link href="/shop" className="block text-sm font-medium text-sage hover:underline">
-                      View All →
-                    </Link>
-                  </div>
-                </div>
-
-                <Link
-                  href="https://avg-studio.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-lg font-medium hover:text-sage transition-colors flex items-center"
-                >
-                  Design Studio ✨
-                </Link>
-
-                <Link href="/custom" className="text-lg font-medium hover:text-sage transition-colors">
-                  Custom Design
-                </Link>
-
-                <Link href="/about" className="text-lg font-medium hover:text-sage transition-colors">
-                  About Grace
-                </Link>
-
-                <div>
-                  <h3 className="font-medium text-lg mb-3">Support</h3>
-                  <div className="space-y-2 ml-4">
-                    <Link
-                      href="/contact"
-                      className="block text-sm text-muted-foreground hover:text-sage transition-colors"
-                    >
-                      Contact
-                    </Link>
-                    <Link href="/faq" className="block text-sm text-muted-foreground hover:text-sage transition-colors">
-                      FAQ
-                    </Link>
-                    <Link
-                      href="/shipping"
-                      className="block text-sm text-muted-foreground hover:text-sage transition-colors"
-                    >
-                      Shipping Info
-                    </Link>
-                    <Link
-                      href="/care-guide"
-                      className="block text-sm text-muted-foreground hover:text-sage transition-colors"
-                    >
-                      Care Guide
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="border-t border-border pt-4">
-                  <Link
-                    href="https://www.instagram.com/amore_via_grace/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-lg font-medium hover:text-sage transition-colors"
-                  >
-                    <Instagram className="h-5 w-5 mr-2" />
-                    Follow on Instagram
-                  </Link>
-                </div>
-              </nav>
-            </SheetContent>
-          </Sheet>
         </div>
       </div>
     </header>
